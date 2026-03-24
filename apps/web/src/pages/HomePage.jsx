@@ -179,9 +179,13 @@ const HomePage = () => {
               className="relative"
             >
               <img
-                src="/images/unsplash-team-work.jpg"
-                alt="Profesionali statybininkų komanda darbe"
-                className="rounded-2xl shadow-2xl w-full"
+                src="/images/why-us-komanda.jpg"
+                alt="UAB Žemaitijos apdaila — komercinio objekto vidaus apdailos darbai, komanda su apsauga"
+                width={1024}
+                height={571}
+                loading="lazy"
+                decoding="async"
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover"
               />
             </motion.div>
           </div>
