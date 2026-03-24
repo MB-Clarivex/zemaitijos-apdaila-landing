@@ -50,7 +50,7 @@ const AboutPage = () => {
 
   const stats = [
     { number: '2016', label: 'Įkūrimo metai' },
-    { number: '9+', label: 'Metų rinkoje' },
+    { number: '10+', label: 'Metų rinkoje' },
     { number: '15+', label: 'Specialistų komanda' },
     { number: '100%', label: 'Dėmesys kokybei' }
   ];

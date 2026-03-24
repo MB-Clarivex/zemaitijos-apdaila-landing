@@ -80,7 +80,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto container-padding">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <StatItem icon={Briefcase} end={200} suffix="+" label="Įvykdytų projektų" />
-            <StatItem icon={Clock} end={9} suffix="+" label="Metų rinkoje" />
+            <StatItem icon={Clock} end={10} suffix="+" label="Metų rinkoje" />
             <StatItem icon={Users} end={15} suffix="+" label="Specialistų komandoje" />
             <StatItem icon={ShieldCheck} end={100} suffix="%" label="Darbų garantija" />
           </div>
@@ -251,7 +251,7 @@ const HomePage = () => {
               Ką sako mūsų klientai
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Daugiau nei 9 metai darbo — šimtai patenkintų klientų
+              Virš 10 metų darbo — šimtai patenkintų klientų
             </p>
           </motion.div>
 
