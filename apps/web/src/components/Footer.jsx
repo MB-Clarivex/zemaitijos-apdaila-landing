@@ -99,7 +99,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-6">Sekite mus</h3>
             <div className="flex gap-4 mb-8">
               <a
-                href="#"
+                href="https://www.facebook.com/zemaitijos.apdaila/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
@@ -108,7 +108,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/zemaitijos_apdaila/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
