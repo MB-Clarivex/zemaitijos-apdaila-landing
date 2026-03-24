@@ -64,7 +64,7 @@ const HomePage = () => {
               Nuo 2016 m. vykdome gyvenamųjų ir komercinių objektų renovaciją, vidaus apdailą, šiltinimą, grindų ir plytelių darbus, stogų bei fasadų įrengimą. Kruopštus darbas, aiškios sąlygos ir patikima komanda.
             </p>
             <Link
-              to="/contact"
+              to="/kontaktai"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 active:scale-[0.98]"
             >
               Gauti nemokamą konsultaciją
@@ -110,7 +110,7 @@ const HomePage = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center mt-12"
           >
-            <Link to="/services" className="btn-outline inline-flex items-center gap-2">
+            <Link to="/paslaugos" className="btn-outline inline-flex items-center gap-2">
               Visos paslaugos
               <ArrowRight className="w-5 h-5" />
             </Link>
