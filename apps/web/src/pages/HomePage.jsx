@@ -3,7 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Hammer, Paintbrush, Grid3x3, Sparkles, ArrowRight } from 'lucide-react';
+import { Hammer, Paintbrush, Grid3x3, Sparkles, ArrowRight, Phone, ClipboardList, FileText, CheckCircle2, Star } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 
 const HomePage = () => {
@@ -172,6 +172,153 @@ const HomePage = () => {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Kaip dirbame */}
+      <section className="section-spacing bg-background">
+        <div className="max-w-7xl mx-auto container-padding">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ letterSpacing: '-0.02em' }}>
+              Kaip dirbame?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Nuo pirmo skambučio iki galutinio rezultato — aiški ir skaidri proceso eiga
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {[
+              { step: '01', icon: Phone, title: 'Susisiekiate', desc: 'Skambinate arba užpildote formą — atsakome per 24 val.' },
+              { step: '02', icon: ClipboardList, title: 'Apžiūra', desc: 'Atvykstame į objektą, išklausome jūsų pageidavimus.' },
+              { step: '03', icon: FileText, title: 'Sąmata', desc: 'Pateikiame detalią, nemokamą kainoraštį.' },
+              { step: '04', icon: Hammer, title: 'Darbai', desc: 'Atlikome darbus pagal suderintą grafiką ir kokybės standartus.' },
+              { step: '05', icon: CheckCircle2, title: 'Priėmimas', desc: 'Priduodame rezultatą su garantija ir tvarkinga darbo vieta.' },
+            ].map(({ step, icon: Icon, title, desc }, i) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                  <Icon className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold text-primary tracking-widest mb-1">{step}</span>
+                <h3 className="text-base font-semibold text-foreground mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                {i < 4 && (
+                  <div className="hidden lg:block absolute top-8 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px bg-border" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Atsiliepimai */}
+      <section className="section-spacing bg-muted/60">
+        <div className="max-w-7xl mx-auto container-padding">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ letterSpacing: '-0.02em' }}>
+              Ką sako mūsų klientai
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Daugiau nei 9 metai darbo — šimtai patenkintų klientų
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Raimondas K.',
+                project: 'Buto remontas, Telšiai',
+                text: 'Labai patenkinti darbu — meistrai atidūs, tvarkūs ir laikėsi sutarto laiko. Vonia ir virtuvė atrodė puikiai. Rekomenduosime draugams.',
+                rating: 5,
+              },
+              {
+                name: 'Jolanta M.',
+                project: 'Fasado šiltinimas, Plungė',
+                text: 'Profesionalus požiūris nuo pat pirmosios konsultacijos. Sąmata buvo tiksli, jokių staigmenų. Fasadas atrodo solidžiai, šildymas sumažėjo.',
+                rating: 5,
+              },
+              {
+                name: 'Tomas B.',
+                project: 'Stogo remontas, Skuodas',
+                text: 'Greitai reagavo, atvažiavo apžiūrėti tą pačią dieną. Darbai atlikti kokybiškai, su garantija. Tikrai kreipsiuosi dar.',
+                rating: 5,
+              },
+            ].map(({ name, project, text, rating }, i) => (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="card-base p-6 flex flex-col gap-4"
+              >
+                <div className="flex gap-1">
+                  {Array.from({ length: rating }).map((_, si) => (
+                    <Star key={si} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                <p className="text-foreground leading-relaxed text-sm flex-grow">„{text}"</p>
+                <div className="border-t border-border pt-4">
+                  <p className="font-semibold text-foreground text-sm">{name}</p>
+                  <p className="text-xs text-muted-foreground">{project}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA juosta */}
+      <section className="py-16 md:py-20 bg-primary">
+        <div className="max-w-4xl mx-auto container-padding text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4" style={{ letterSpacing: '-0.02em' }}>
+              Pradėkime jūsų projektą šiandien
+            </h2>
+            <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+              Nemokama konsultacija ir sąmata — susisiekite dabar, atsakysime per 24 val.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/kontaktai"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 transition-all duration-200 active:scale-[0.98]"
+              >
+                Gauti sąmatą
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <a
+                href="tel:+37061156182"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-all duration-200 active:scale-[0.98]"
+              >
+                <Phone className="w-5 h-5" />
+                +370 611 56182
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>

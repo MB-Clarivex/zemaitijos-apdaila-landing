@@ -2,7 +2,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Paintbrush as PaintRoller, Home, Wrench, Hammer, CheckCircle2 } from 'lucide-react';
+import { Paintbrush as PaintRoller, Home, Wrench, Hammer, CheckCircle2, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 
 const ServicesPage = () => {
   const categories = [
@@ -126,8 +127,90 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
+
+      {/* DUK / FAQ */}
+      <section className="section-spacing bg-muted/60">
+        <div className="max-w-3xl mx-auto container-padding">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ letterSpacing: '-0.02em' }}>
+              Dažniausiai užduodami klausimai
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Atsakymai į klausimus, kuriuos mūsų klientai užduoda dažniausiai
+            </p>
+          </motion.div>
+
+          <FaqList />
+        </div>
+      </section>
     </>
   );
 };
+
+const faqItems = [
+  {
+    q: 'Ar konsultacija ir sąmata nemokama?',
+    a: 'Taip — apžiūra ir detali sąmata yra visiškai nemokamos ir jūsų neįpareigojančios. Atvykstame į objektą, įvertiname darbus ir pateikiame kainoraštį.',
+  },
+  {
+    q: 'Kiek laiko trunka vidutinis buto remontas?',
+    a: 'Tai priklauso nuo buto dydžio ir darbų apimties. Kosmetinis remontas paprastai trunka 1–3 savaites, kapitalinis — 4–8 savaites. Tikslų terminą nustatomą po apžiūros.',
+  },
+  {
+    q: 'Ar dirbate su medžiagomis, ar tik teikiate paslaugas?',
+    a: 'Galimi abu variantai — galime patiekti visas reikiamas medžiagas arba dirbti su jūsų pačių įsigytomis. Aptarsime tinkamiausią variantą konsultacijos metu.',
+  },
+  {
+    q: 'Kokia darbo garantija?',
+    a: 'Teikiame 12 mėnesių garantiją visiems atliktiems darbams. Jei per garantinį laikotarpį iškyla defektų dėl mūsų kaltės, išsprendžiame nemokamai.',
+  },
+  {
+    q: 'Kuriose vietovėse dirbate?',
+    a: 'Dirbame visoje Lietuvoje, su pagrindiniu akcentu į Žemaitijos regioną — Telšiai, Plungė, Skuodas, Klaipėda ir apylinkės. Dideliems projektams galime atvykti ir toliau.',
+  },
+  {
+    q: 'Kaip sumokėti už darbus?',
+    a: 'Paprastai taikomas dalinis mokėjimas: avansas prieš darbus, likutis po priėmimo. Tikslias mokėjimo sąlygas suderinamas sutartyje.',
+  },
+];
+
+function FaqList() {
+  const [open, setOpen] = useState(null);
+  return (
+    <div className="space-y-3">
+      {faqItems.map(({ q, a }, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: i * 0.07 }}
+          className="card-base overflow-hidden"
+        >
+          <button
+            className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            <span className="font-semibold text-foreground">{q}</span>
+            <ChevronDown
+              className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`}
+            />
+          </button>
+          {open === i && (
+            <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t border-border pt-4">
+              {a}
+            </div>
+          )}
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 export default ServicesPage;

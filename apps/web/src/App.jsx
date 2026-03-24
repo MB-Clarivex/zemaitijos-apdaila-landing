@@ -12,10 +12,13 @@ import ContactPage from '@/pages/ContactPage.jsx';
 import TermsPage from '@/pages/TermsPage.jsx';
 import PrivacyPage from '@/pages/PrivacyPage.jsx';
 import { Toaster } from '@/components/ui/toaster';
+import ScrollToTop from '@/components/ScrollToTop.jsx';
+import StickyCallButton from '@/components/StickyCallButton.jsx';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-background flex flex-col font-sans">
         <TopBar />
         <Header />
@@ -32,6 +35,7 @@ function App() {
         </main>
         <Footer />
         <Toaster />
+        <StickyCallButton />
       </div>
     </Router>
   );
