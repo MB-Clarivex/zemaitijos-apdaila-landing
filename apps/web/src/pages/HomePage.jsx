@@ -81,7 +81,7 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <StatItem icon={Briefcase} end={200} suffix="+" label="Įvykdytų projektų" />
             <StatItem icon={Clock} end={10} suffix="+" label="Metų rinkoje" />
-            <StatItem icon={Users} end={15} suffix="+" label="Specialistų komandoje" />
+            <StatItem icon={Users} end={20} suffix="+" label="Specialistų komandoje" />
             <StatItem icon={ShieldCheck} end={100} suffix="%" label="Darbų garantija" />
           </div>
         </div>
