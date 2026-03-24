@@ -2,7 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Paintbrush as PaintRoller, Home, Wrench, Hammer, CheckCircle2, ChevronDown } from 'lucide-react';
+import { Paintbrush as PaintRoller, Home, Wrench, Hammer, CheckCircle2, ChevronDown, Layers, Droplets } from 'lucide-react';
 import { useState } from 'react';
 
 const ServicesPage = () => {
@@ -15,9 +15,12 @@ const ServicesPage = () => {
       services: [
         'Gipso kartono plokščių montavimas (sienos, lubos, pertvaros)',
         'Sienų ir lubų glaistymas, lyginimas',
+        'Dekoratyvinio tinko dėjimas ir faktūros',
         'Dažymas ir tapetavimas',
         'Plytelių klojimas (vonia, virtuvė, grindys)',
-        'Grindų dangos klojimas (laminatas, parketas, vinilas)'
+        'Grindų dangos klojimas (laminatas, parketas, vinilas)',
+        'Nišų, lankų ir dekoratyvinių elementų formavimas',
+        'Lubų dailylentės ir apvadų montavimas'
       ]
     },
     {
@@ -26,11 +29,13 @@ const ServicesPage = () => {
       icon: Home,
       description: 'Pastatų eksterjero darbai, užtikrinantys ilgaamžiškumą, šilumos izoliaciją ir patrauklią išvaizdą.',
       services: [
-        'Fasadų šiltinimas (polistirolas, vata)',
-        'Dekoratyvinio tinko dėjimas',
-        'Fasadų dažymas',
-        'Stogų dengimas ir remontas',
-        'Lietaus nuvedimo sistemų montavimas'
+        'Fasadų šiltinimas (polistirolas, mineralinė vata)',
+        'Dekoratyvinio tinko dėjimas ir dažymas',
+        'Klinkerinių plytelių klojimas ant fasado',
+        'Medinių ir kompozicinių plokščių montavimas',
+        'Cokolio apdaila ir hydroizoliacinis dengimas',
+        'Sienų ir pamatų apsauga nuo drėgmės',
+        'Lietaus nuvedimo sistemų montavimas ir remontas'
       ]
     },
     {
@@ -42,8 +47,11 @@ const ServicesPage = () => {
         'Kapitalinis butų ir namų remontas',
         'Kosmetinis patalpų atnaujinimas',
         'Komercinių patalpų pritaikymas veiklai',
+        'Biurų ir parduotuvių renovacija',
         'Santechnikos ir elektros instaliacijos atnaujinimas',
-        'Demontavimo darbai ir šiukšlių išvežimas'
+        'Durų ir langų rėmų montavimas',
+        'Demontavimo darbai ir statybinių šiukšlių išvežimas',
+        'Sezoninis objektų paruošimas (žiemai / vasarai)'
       ]
     },
     {
@@ -56,7 +64,54 @@ const ServicesPage = () => {
         'Karkasinių konstrukcijų statyba',
         'Nestandartinių gipso formų formavimas',
         'Hidroizoliacijos įrengimas',
-        'Smulkūs betonavimo ir mūrijimo darbai'
+        'Smulkūs betonavimo ir mūrijimo darbai',
+        'Laiptų apdaila ir turėklų montavimas',
+        'Balkono ir lodžijos pertvarkymas'
+      ]
+    },
+    {
+      id: 'stogai',
+      title: 'Stogų darbai',
+      icon: Home,
+      description: 'Profesionalus stogų dengimas, renovacija ir priežiūra. Naudojame tik sertifikuotas medžiagas, garantuojančias ilgaamžiškumą.',
+      services: [
+        'Šlaitinių stogų dengimas (bitumine danga, metalinėmis čerpėmis)',
+        'Plokščių stogų dengimas ir renovacija',
+        'Stogų šiltinimas ir garo izoliacijos įrengimas',
+        'Skardinimo darbai (karnizai, latakų sistema)',
+        'Stogų apžiūra ir prežiūros paslaugos',
+        'Mansardų įrengimas ir langelių montavimas',
+        'Avariní stogų remonto darbai'
+      ]
+    },
+    {
+      id: 'grindys',
+      title: 'Grindų įrengimas',
+      icon: Layers,
+      description: 'Visų tipų grindų dangų tiekimas ir klojimas. Patariame renkantis medžiagas pagal patalpų paskirtį ir klientų biudžetą.',
+      services: [
+        'Laminuotų grindų klojimas',
+        'Parketlenčių ir masyvaus parketo klojimas',
+        'Vinilo ir LVT grindų klojimas',
+        'Keraminių ir akmens masės plytelių klojimas',
+        'Betono grindų šlifavimas ir poliravimas',
+        'Savaiminės įrangos (pilami grindys) klojimas',
+        'Šildymo grindų sistemų montavimas'
+      ]
+    },
+    {
+      id: 'vonios',
+      title: 'Vonios ir drėgnos patalpos',
+      icon: Droplets,
+      description: 'Vonios kambariai, saunos ir kitos drėgnos patalpos — nuo hidroizoliacijos iki baigiamosios apdailos. Pilnas raktų projektas.',
+      services: [
+        'Vonios kambario pilnas įrengimas nuo nulio',
+        'Hidroizoliacijos sluoksnio uždejimas',
+        'Plytelių klojimas sienoms ir grindims',
+        'Santechnikos baldų (kabineto, vonios) montavimas',
+        'Saunų ir pirčių įrengimas',
+        'Dušo kabinų ir pertvarų montavimas',
+        'Ventilacinių sistemų įrengimas drėgnose patalpose'
       ]
     }
   ];
@@ -90,7 +145,7 @@ const ServicesPage = () => {
 
       <section className="section-spacing bg-background">
         <div className="max-w-7xl mx-auto container-padding">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {categories.map((category, index) => (
               <motion.div
                 key={category.id}

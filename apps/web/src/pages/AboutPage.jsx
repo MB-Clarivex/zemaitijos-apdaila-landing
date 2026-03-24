@@ -2,29 +2,49 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Award, Users, Target, Heart, MapPin, Quote } from 'lucide-react';
+import { Award, Users, Target, Heart, MapPin, Quote, ShieldCheck, Clock, Leaf, Lightbulb, BadgeCheck, Handshake } from 'lucide-react';
 
 const AboutPage = () => {
   const values = [
     {
       icon: Award,
       title: 'Kokybiškas meistriškumas',
-      description: 'Mes didžiuojamės teikdami išskirtinius darbus, kurie atlaiko laiko išbandymus.'
+      description: 'Naudojame tik sertifikuotas medžiagas ir patikrintas technologijas. Kiekvienas darbas atliekamas taip, lyg jis būtų mūsų namams.'
     },
     {
       icon: Users,
       title: 'Dėmesys klientui',
-      description: 'Jūsų pasitenkinimas yra mūsų prioritetas. Mes išklausome, prisitaikome ir viršijame lūkesčius.'
+      description: 'Jūsų pasitenkinimas — mūsų prioritetas. Išklausome poreikius, pateikiame aiškias sąmatas ir palaikome ryšį visą projekto eigą.'
     },
     {
       icon: Target,
       title: 'Tikslumas ir detalės',
-      description: 'Kiekvienam projektui skiriamas ypatingas dėmesys, siekiant užtikrinti nepriekaištingus rezultatus.'
+      description: 'Matome tai, ko kiti nepastebi. Kruopštus paruošimas, tikslūs matmenys ir nepriekaištinga baigiamoji apdaila skiria mus nuo kitų.'
     },
     {
       icon: Heart,
       title: 'Aistra tobulumui',
-      description: 'Mes mylime tai, ką darome, ir tai atsispindi kiekviename mūsų apdailintame paviršiuje.'
+      description: 'Statybos ir apdaila — ne tik darbas, bet ir pašaukimas. Tai atsispindi kiekviename mūsų įrengintame kambaryje ir suremontautame fasade.'
+    },
+    {
+      icon: Clock,
+      title: 'Terminų laikymasis',
+      description: 'Suprantame, kad laikas — brangus. Projekto pradžia ir pabaiga fiksuojamos sutartyje ir jų laikomasi. Darbų vėlavimai — ne mūsų kultūra.'
+    },
+    {
+      icon: BadgeCheck,
+      title: 'Skaidrumas ir sąžiningumas',
+      description: 'Aiški kainodara be paslėptų mokesčių. Prieš pradedant darbus gausite detalią sąmatą, ir galutinė suma neviršys sutarto biudžeto.'
+    },
+    {
+      icon: Leaf,
+      title: 'Atsakomybė aplinkai',
+      description: 'Renkamės ekologiškas ir mažai kenksmingų medžiagų turinčias dažų ir statybinių medžiagų alternatyvas. Statybinės atliekos šalinamos tvarkingai.'
+    },
+    {
+      icon: Lightbulb,
+      title: 'Nuolatinis tobulėjimas',
+      description: 'Sekame statybų tendencijas, naudojame modernią techniką ir nuolat tobuliname meistrų kvalifikaciją — kad galėtume pasiūlyti geriausius sprendimus.'
     }
   ];
 
@@ -127,7 +147,7 @@ const AboutPage = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
