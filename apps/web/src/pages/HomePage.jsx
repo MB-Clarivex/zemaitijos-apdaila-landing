@@ -3,8 +3,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Hammer, Paintbrush, Grid3x3, Sparkles, ArrowRight, Phone, ClipboardList, FileText, CheckCircle2, Star } from 'lucide-react';
+import { Hammer, Paintbrush, Grid3x3, Sparkles, ArrowRight, Phone, ClipboardList, FileText, CheckCircle2, Star, ShieldCheck, Clock, Users, Briefcase } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
+import { useAnimatedCounter } from '@/components/AnimatedCounter';
 
 const HomePage = () => {
   const services = [
@@ -71,6 +72,18 @@ const HomePage = () => {
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Statistikos juosta */}
+      <section className="bg-slate-900 py-10 md:py-12">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <StatItem icon={Briefcase} end={200} suffix="+" label="Įvykdytų projektų" />
+            <StatItem icon={Clock} end={9} suffix="+" label="Metų rinkoje" />
+            <StatItem icon={Users} end={15} suffix="+" label="Specialistų komandoje" />
+            <StatItem icon={ShieldCheck} end={100} suffix="%" label="Darbų garantija" />
+          </div>
         </div>
       </section>
 
@@ -324,5 +337,20 @@ const HomePage = () => {
     </>
   );
 };
+
+function StatItem({ icon: Icon, end, suffix, label }) {
+  const { count, ref } = useAnimatedCounter(end);
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-2">
+      <div className="w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-1">
+        <Icon className="w-6 h-6" />
+      </div>
+      <span className="text-4xl md:text-5xl font-extrabold text-white leading-none">
+        {count}{suffix}
+      </span>
+      <span className="text-sm text-slate-400 font-medium">{label}</span>
+    </div>
+  );
+}
 
 export default HomePage;

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Award, Users, Target, Heart } from 'lucide-react';
+import { Award, Users, Target, Heart, MapPin, Quote } from 'lucide-react';
 
 const AboutPage = () => {
   const values = [
@@ -149,6 +149,101 @@ const AboutPage = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vadovo citata */}
+      <section className="bg-slate-900 py-16 md:py-20">
+        <div className="max-w-4xl mx-auto container-padding text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Quote className="w-12 h-12 text-primary/50 mx-auto mb-6" />
+            <blockquote className="text-xl md:text-2xl text-white font-light leading-relaxed italic mb-8">
+              „Nesiekiame būti didžiausiais — siekiame būti geriausi tame, ką darome. Kiekvienas projektas mums yra rekomendacija ateičiai, todėl dirbame taip, kad klientas norėtų mus rekomenduoti draugams."
+            </blockquote>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-lg">
+                V
+              </div>
+              <div className="text-left">
+                <p className="text-white font-semibold">UAB „Žemaitijos apdaila"</p>
+                <p className="text-slate-400 text-sm">Vadovas</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Veikimo regionai */}
+      <section className="section-spacing bg-background">
+        <div className="max-w-7xl mx-auto container-padding">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ letterSpacing: '-0.02em' }}>
+              Dirbame visoje Lietuvoje
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Nors širdis — Žemaitijoje, mūsų komanda vykdo projektus ir kitose Lietuvos miestuose bei regionuose.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { city: 'Telšiai', note: 'Pagrindinis regionas' },
+                { city: 'Plungė', note: 'Žemaitija' },
+                { city: 'Mažeikiai', note: 'Žemaitija' },
+                { city: 'Šiauliai', note: 'Šiaurės Lietuva' },
+                { city: 'Klaipėda', note: 'Vakarų Lietuva' },
+                { city: 'Vilnius', note: 'Dideli projektai' },
+                { city: 'Kaunas', note: 'Dideli projektai' },
+                { city: 'Visa Lietuva', note: 'Susisiekite dėl išvykos' },
+              ].map(({ city, note }) => (
+                <div key={city} className="flex items-start gap-3 p-4 rounded-xl border border-border hover:border-primary/40 transition-colors">
+                  <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">{city}</p>
+                    <p className="text-xs text-muted-foreground">{note}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-2xl overflow-hidden shadow-xl border border-border"
+            >
+              <iframe
+                title="UAB Žemaitijos apdaila – Telšiai"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35894.2!2d22.2393!3d55.9871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e5f2b9a3a7e1a9%3A0x400d18c86697df0!2sTel%C5%A1iai!5e0!3m2!1slt!2slt!4v1700000000000"
+                width="100%"
+                height="360"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
