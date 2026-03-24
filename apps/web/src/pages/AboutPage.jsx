@@ -104,9 +104,9 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
             >
               <img
-                src="/images/unsplash-team-work.jpg"
-                alt="Profesionali statybininkų komanda atliekanti vidaus apdailą"
-                className="rounded-2xl shadow-2xl w-full"
+                src="/images/portfolio-renovacija.jpg"
+                alt="UAB Žemaitijos apdaila — renovacijos ir vidaus apdailos projektas"
+                className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
               />
             </motion.div>
           </div>
