@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast.js';
-import pb from '@/lib/pocketbaseClient.js';
+
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -26,9 +27,60 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim();
+    if (!accessKey) {
+      toast({
+        title: "Forma nesukonfigūruota",
+        description: 'Nustatykite VITE_WEB3FORMS_ACCESS_KEY (Vercel Environment Variables).',
+        variant: 'destructive',
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    const serviceLabels = {
+      gypsum: 'Gipso montavimas',
+      tiles: 'Plytelių klojimas',
+      plastering: 'Spakliavimas',
+      painting: 'Dažymas',
+      roofs: 'Stogai ir fasadai',
+      terraces: 'Terasos ir karkasas',
+      renovation: 'Renovacija ir kompleksiniai darbai',
+    };
+    const serviceLabel = formData.service_type
+      ? serviceLabels[formData.service_type] || formData.service_type
+      : 'nenurodyta';
+
+    const messageBody = [
+      formData.phone && `Telefonas: ${formData.phone}`,
+      `Paslauga: ${serviceLabel}`,
+      '',
+      formData.project_description || '(žinutės teksto nėra)',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
     try {
-      await pb.collection('contact_inquiries').create(formData, { $autoCancel: false });
-      
+      const res = await fetch(WEB3FORMS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: `Kontaktų forma — ${formData.name}`,
+          message: messageBody,
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success !== true) {
+        throw new Error(data.message || data.error || `HTTP ${res.status}`);
+      }
+
       toast({
         title: "Žinutė sėkmingai išsiųsta",
         description: "Susisieksime su jumis per 24 valandas.",
