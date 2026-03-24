@@ -115,7 +115,10 @@ const PrivacyPage = () => {
               <section>
                 <h2 className="text-2xl font-semibold text-foreground mb-4">8. Slapukai</h2>
                 <p>
-                  Mūsų interneto svetainėje gali būti naudojami būtini techniniai slapukai (angl. cookies), skirti užtikrinti tinkamą svetainės veikimą. Mes nenaudojame trečiųjų šalių sekimo ar rinkodaros slapukų be jūsų išankstinio sutikimo.
+                  Pirmą kartą apsilankę svetainėje matote pranešimą apie slapukus. Jūsų pasirinkimas („Sutinku“ ar „Tik būtini“) įrašomas jūsų naršyklės vietinėje saugykloje (localStorage), kad pranešimas neberodytų kiekvieno apsilankymo metu — tai nėra asmeninių duomenų perdavimas serveriui.
+                </p>
+                <p className="mt-2">
+                  Mūsų interneto svetainėje gali būti naudojami būtini techniniai slapukai (angl. cookies), skirti užtikrinti tinkamą svetainės veikimą. Trečiųjų šalių analitikos ar rinkodaros slapukų šiuo metu neįjungiame be jūsų sutikimo; jei ateityje būtų naudojami papildomi įrankiai, atnaujinsime šią politiką ir, jei reikės, paprašysime papildomo sutikimo.
                 </p>
               </section>
 

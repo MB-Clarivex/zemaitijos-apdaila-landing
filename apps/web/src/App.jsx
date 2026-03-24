@@ -14,6 +14,7 @@ import PrivacyPage from '@/pages/PrivacyPage.jsx';
 import { Toaster } from '@/components/ui/toaster';
 import ScrollToTop from '@/components/ScrollToTop.jsx';
 import StickyCallButton from '@/components/StickyCallButton.jsx';
+import CookieConsent from '@/components/CookieConsent.jsx';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Footer />
         <Toaster />
         <StickyCallButton />
+        <CookieConsent />
       </div>
     </Router>
   );
